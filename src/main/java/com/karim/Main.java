@@ -42,7 +42,7 @@ public class Main {
 
     //Problem 3
     private static <T> T findKthElement(T[] arr, int k) {
-        if (arr == null || arr.length == 0) {
+        if (arr == null || arr.length == 0 || k < 1 || k > arr.length) {
             return null;
         }
         return recursiveKthelement(arr, k-1, 0);
