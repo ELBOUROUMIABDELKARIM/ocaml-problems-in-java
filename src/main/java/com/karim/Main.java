@@ -3,7 +3,7 @@ package com.karim;
 public class Main {
     public static void main(String[] args) {
         Integer[] list = new Integer[]{1, 2, 3, 4, 5};
-        System.out.println(returnLastTwo(list));
+        System.out.println(findKthElement(list, 5));
     }
 
 
@@ -38,6 +38,21 @@ public class Main {
             return new Pair<>(arr[index], arr[index + 1]);
         }
         return recursiveReturnLastTwo(arr, index + 1);
+    }
+
+    //Problem 3
+    private static <T> T findKthElement(T[] arr, int k) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+        return recursiveKthelement(arr, k-1, 0);
+    }
+
+    private static <T> T recursiveKthelement(T[] arr, int k, int index) {
+        if (index == k) {
+            return arr[index];
+        }
+        return recursiveKthelement(arr, k, index + 1);
     }
 
 }
